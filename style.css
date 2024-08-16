@@ -1,0 +1,356 @@
+/* General */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #131313, #111111);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Cambiado de height a min-height para que pueda crecer según el contenido */
+    padding: 20px; /* Añade padding alrededor del contenido para asegurarse de que no toque los bordes */
+    box-sizing: border-box; /* Incluye padding y borde en el tamaño del elemento */
+}
+
+/* Aplicar box-sizing a todos los elementos */
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+.sidebar {
+    height: 100vh;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    padding-top: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar h2 {
+    color: white;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 0px;
+    font-size: 24px;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 1px 20px;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    padding: 10px; /* Ajusta el padding en lugar de height */
+}
+
+.sidebar ul li a:hover {
+    background-color: #242424;
+    border-radius: 5px;
+}
+/* Ocultar la barra lateral en pantallas pequeñas por defecto */
+.sidebar.collapsed {
+    transform: translateX(-250px);
+}
+
+/* Estilo del botón de colapsar/expandir */
+.sidebar-toggle {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    background-color: #111;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1000;
+    font-size: 24px;
+    display: none; /* Ocultar por defecto */
+}
+
+/* Mostrar el botón en pantallas pequeñas */
+
+.sidebar-toggle {
+    display: block;
+    }
+
+    /* Ajustar el margen del contenido principal cuando la barra está colapsada */
+.sidebar.collapsed + .container {
+    margin-left: 0;
+    width: 100%;
+    }
+    @media (max-width: 768px) {
+
+    
+        .sidebar-toggle-btn {
+            display: block; /* Mostrar el botón para abrir la barra lateral */
+            position: fixed;
+            top: 20px;
+            left: 10px;
+            width: 40px;
+            height: 40px;
+            background-color: #333;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 1000; /* Asegurarse de que el botón esté encima del contenido */
+        }
+    
+        .sidebar-toggle-btn:hover {
+            background-color: #555;
+        }
+    
+        .container {
+            margin-left: 0; /* Elimina el margen izquierdo en pantallas pequeñas */
+            width: 100%; /* Asegura que el contenedor ocupe todo el ancho disponible */
+        }
+    }
+    
+.container {
+    background-color: rgba(105, 105, 105, 0.185); /* Fondo translúcido con blur */
+    backdrop-filter: blur(10px); /* Efecto blur */
+    padding: 20px 20px; /* Ajusta padding para dar espacio dentro del contenedor */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px 0; /* Espacio superior e inferior para asegurar que no toque los bordes */
+    text-align: center; /* Centra el contenido del texto */
+    position: relative;
+    margin-left: 260px;
+}
+
+/* Responsive: asegura que el contenedor se vea bien en dispositivos móviles */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px 10px; /* Reducir el padding en pantallas pequeñas */
+        width: 95%; /* Aumentar el ancho en pantallas pequeñas */
+    }
+}
+
+
+/* Formularios */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    margin: 15px 0 5px 0;
+}
+
+input[type="text"],
+input[type="number"] {
+    width: 80%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    background-color: #42424270;
+    color: white;
+}
+
+button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px 0;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Barra de progreso */
+#progress-bar-container {
+    width: 100%;
+    height: 30px;
+    background-color: #3030309d;
+    border-radius: 5px;
+    margin: 20px 0;
+    overflow: hidden;
+}
+
+#progress-bar {
+    height: 100%;
+    width: 0;
+    background-color: #4caf50;
+    transition: width 0.5s, background-color 0.5s;
+}
+
+/* Metas semanales */
+.goal-box {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+    background-color: #555;
+    color: white;
+    text-align: center;
+    line-height: 50px;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+
+.goal-box.pending {
+    background-color: #fbc02d; /* Amarillo para metas pendientes */
+}
+
+.goal-box.completed {
+    background-color: #4caf50; /* Verde para metas completadas */
+}
+
+.goal-box.uncompleted {
+    background-color: #f44336; /* Rojo para metas no completadas */
+}
+
+/* Modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    position: relative;
+    background-color: rgba(105, 105, 105, 0.185); /* Fondo translúcido con blur */
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 10px;
+    width: 350px; /* Aumentar el tamaño de la tarjeta */
+    max-width: 90%;
+    text-align: center;
+}
+/* Estilo para el botón de cerrar en el modal */
+.modal-content .close-btn {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #b71c1c; /* Rojo oscuro para el círculo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+/* Estilo para la X dentro del círculo en el modal 
+.modal-content .close-btn::before {
+    content: '×';
+    color: #5c1616;
+    font-size: 16px;
+    font-style: italic;
+    line-height: 1;
+}*/
+textarea {
+    width: 90%;
+    height: 120px; /* Aumentar la altura del cuadro de texto */
+    margin-bottom: 10px;
+    background-color: #222;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    resize: none;
+}
+
+/* Botones en la tarjeta */
+.modal-buttons {
+    display: flex;
+    justify-content: space-between; /* Espaciar los botones */
+    flex-wrap: wrap; /* Permitir que los botones se reorganicen en varias líneas si es necesario */
+}
+
+.modal-buttons button {
+    flex: 1 1 30%; /* Tamaño relativo para que los botones se ajusten en la tarjeta */
+    margin: 5px;
+}
+
+button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px 0;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+
+
+/* Animación de formas geométricas */
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(180deg);
+    }
+    100% {
+        transform: translateY(0) rotate(360deg);
+    }
+}
+.goal-box.disabled {
+    background-color: #888;
+    cursor: not-allowed;
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+
+/* Animación de parpadeo */
+@keyframes blink {
+    0% { background-color: #b9b9b9; }
+    50% { background-color: transparent; }
+    100% { background-color: #b9b9b9; }
+}
+
+.blinking {
+    animation: blink 1s infinite;
+}
+
+/* Animación de aumento de tamaño */
+@keyframes scaleUp {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.scale-up {
+    animation: scaleUp 0.5s ease-in-out;
+}
+
+
+

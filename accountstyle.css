@@ -1,0 +1,90 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #131313, #111111);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.container {
+    background-color: rgba(105, 105, 105, 0.185);
+    backdrop-filter: blur(10px);
+    padding: 20px 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 900px;
+    text-align: center;
+    position: relative;
+}
+
+#auth-container {
+    display: flex;
+    justify-content: space-between; /* Espacio entre las tarjetas */
+    gap: 20px;
+    flex-wrap: wrap; /* Permite que las tarjetas se ajusten en pantallas pequeñas */
+}
+
+.auth-card {
+    background-color: rgba(42, 42, 42, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    width: 48%; /* Ocupa el 48% del contenedor para que dos tarjetas se coloquen lado a lado */
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    margin: 15px 0 5px 0;
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 80%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    background-color: #42424270;
+    color: white;
+}
+
+button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px 0;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+p {
+    margin-top: 15px;
+}
+
+#show-register,
+#show-login {
+    color: #4caf50;
+    cursor: pointer;
+}
+
+#show-register:hover,
+#show-login:hover {
+    text-decoration: underline;
+}

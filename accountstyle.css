@@ -11,36 +11,51 @@ body {
     box-sizing: border-box;
 }
 
+/* Contenedor principal */
 .container {
     background-color: rgba(105, 105, 105, 0.185);
     backdrop-filter: blur(10px);
-    padding: 20px 20px;
+    padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     width: 100%;
     max-width: 1000px;
     text-align: center;
-    position: relative;
+    margin: 0 auto; /* Centra el contenedor */
 }
 
+/* Contenedor de las tarjetas de autenticación */
 #auth-container {
     display: flex;
-    justify-content: space-evenly; /* Espacio uniforme alrededor de las tarjetas */
-    align-items: flex-start; /* Alinea las tarjetas al principio de la columna */
+    justify-content: space-between;
     gap: 20px;
-    flex-wrap: nowrap; /* Evita que las tarjetas se envuelvan a la siguiente línea */
+    flex-wrap: nowrap; /* Asegura que las tarjetas no se apilen en pantallas grandes */
 }
 
+/* Estilo de las tarjetas de autenticación */
 .auth-card {
     background-color: rgba(42, 42, 42, 0.7);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    flex: 1; /* Permite que las tarjetas ocupen espacio igual dentro del contenedor */
-    max-width: 48%; /* Limita el ancho máximo para asegurarse de que las tarjetas se alineen */
     text-align: center;
-    margin: 0; /* Elimina los márgenes para evitar que las tarjetas se desplacen */
+    width: 48%; /* Ocupa el 48% del contenedor en pantallas grandes */
+    margin: 10px;
 }
+
+/* Media query para pantallas pequeñas (móviles) */
+@media (max-width: 768px) {
+    #auth-container {
+        flex-wrap: wrap; /* Permite que las tarjetas se apilen en pantallas pequeñas */
+    }
+    .auth-card {
+        width: calc(100% - 40px); /* Ocupa casi todo el ancho con un margen de 20px */
+    }
+}
+
+
+
+
 
 form {
     display: flex;
@@ -48,18 +63,7 @@ form {
     align-items: center;
 }
 
-/* Media query para pantallas pequeñas (móviles) */
-@media (max-width: 768px) {
-    #auth-container {
-        flex-direction: column; /* Cambia la dirección a columna en lugar de fila */
-        align-items: center;
-    }
 
-    .auth-card {
-        width: 100%; /* Ocupa el 100% del contenedor en pantallas pequeñas */
-        margin-bottom: 20px; /* Agrega un margen inferior entre las tarjetas */
-    }
-}
 
 label {
     margin: 15px 0 5px 0;

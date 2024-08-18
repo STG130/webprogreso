@@ -4,16 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dream Tracker - Autenticación</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="accountstyle.css">
+    <script type="module" src="account.js" defer></script>
 </head>
 <body>
     <div class="container">
-        <h1>Dream Tracker</h1>
+        <h1>DISCIPLINA🔥</h1>
         <div id="auth-container">
             <!-- Tarjeta de Iniciar Sesión -->
             <div class="auth-card" id="login-form">
                 <h2>Iniciar Sesión</h2>
-                <form>
+                <form id="login-form-element">
                     <label for="login-email">Correo Electrónico</label>
                     <input type="email" id="login-email" required>
 
@@ -22,29 +23,22 @@
 
                     <button type="submit">Iniciar Sesión</button>
                 </form>
-                <p>¿No tienes una cuenta? <span id="show-register">Regístrate aquí</span></p>
             </div>
 
             <!-- Tarjeta de Registrarse -->
             <div class="auth-card" id="register-form">
                 <h2>Registrarse</h2>
-                <form>
+                <form id="register-form-element">
                     <label for="register-email">Correo Electrónico</label>
                     <input type="email" id="register-email" required>
 
                     <label for="register-password">Contraseña</label>
                     <input type="password" id="register-password" required>
 
-                    <button type="submit">Registrarse</button>
+                    <button type="submit" id="register-submit">Registrarse</button>
                 </form>
-                <p>¿Ya tienes una cuenta? <span id="show-login">Inicia sesión aquí</span></p>
             </div>
         </div>
     </div>
-
-    <!-- Firebase y App JS -->
-    <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-auth.js"></script>
-    <script src="account.js"></script>
 </body>
 </html>

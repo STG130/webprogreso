@@ -18,16 +18,17 @@ body {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     width: 100%;
-    max-width: 900px;
+    max-width: 1000px;
     text-align: center;
     position: relative;
 }
 
 #auth-container {
     display: flex;
-    justify-content: space-between; /* Espacio entre las tarjetas */
+    justify-content: space-evenly; /* Espacio uniforme alrededor de las tarjetas */
+    align-items: flex-start; /* Alinea las tarjetas al principio de la columna */
     gap: 20px;
-    flex-wrap: wrap; /* Permite que las tarjetas se ajusten en pantallas pequeñas */
+    flex-wrap: nowrap; /* Evita que las tarjetas se envuelvan a la siguiente línea */
 }
 
 .auth-card {
@@ -35,8 +36,10 @@ body {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    width: 48%; /* Ocupa el 48% del contenedor para que dos tarjetas se coloquen lado a lado */
+    flex: 1; /* Permite que las tarjetas ocupen espacio igual dentro del contenedor */
+    max-width: 48%; /* Limita el ancho máximo para asegurarse de que las tarjetas se alineen */
     text-align: center;
+    margin: 0; /* Elimina los márgenes para evitar que las tarjetas se desplacen */
 }
 
 form {

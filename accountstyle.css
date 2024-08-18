@@ -48,6 +48,19 @@ form {
     align-items: center;
 }
 
+/* Media query para pantallas pequeñas (móviles) */
+@media (max-width: 768px) {
+    #auth-container {
+        flex-direction: column; /* Cambia la dirección a columna en lugar de fila */
+        align-items: center;
+    }
+
+    .auth-card {
+        width: 100%; /* Ocupa el 100% del contenedor en pantallas pequeñas */
+        margin-bottom: 20px; /* Agrega un margen inferior entre las tarjetas */
+    }
+}
+
 label {
     margin: 15px 0 5px 0;
 }

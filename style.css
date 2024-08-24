@@ -27,6 +27,7 @@ body {
     background-color: #111;
     padding-top: 20px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    transition: 1s;
 }
 
 .sidebar h2 {
@@ -133,6 +134,7 @@ body {
     text-align: center; /* Centra el contenido del texto */
     position: relative;
     margin-left: 260px;
+    transition: 1s;
 }
 
 /* Responsive: asegura que el contenedor se vea bien en dispositivos móviles */
